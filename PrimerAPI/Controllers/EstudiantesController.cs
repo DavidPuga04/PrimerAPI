@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PrimerAPI.Interfaz;
+using PrimerAPI.Modelos;
 using PrimerAPI.Repositories;
 
 namespace PrimerAPI.Controllers
@@ -34,6 +35,27 @@ namespace PrimerAPI.Controllers
             catch (Exception e)
             {
                 return NotFound();
+            }
+        }
+
+        [HttpPost]
+        public IActionResult GuardarEstudiante([FromBody] Estudiante estudiante)
+        {
+            try
+            {
+                var guardar = _estudianteRepository.GuardarEstudiante(estudiante);
+                if (guardar)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return StatusCode(500);
+                }
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500);
             }
         }
     }

@@ -6,5 +6,6 @@ namespace PrimerAPI.Interfaz
     {
         IEnumerable<Estudiante> DevuelveListadoEstudiantes();
         Estudiante DevuelveInformacionEstudiante(string BannerId);
+        bool GuardarEstudiante(Estudiante estudiante);
     }
 }

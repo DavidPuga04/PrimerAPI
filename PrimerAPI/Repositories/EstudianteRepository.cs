@@ -33,5 +33,10 @@ namespace PrimerAPI.Repositories
             estudiantes.Add(estudiante2);
             return estudiantes;
         }
+
+        public bool GuardarEstudiante(Estudiante estudiante)
+        {
+            return true;
+        }
     }
 }
